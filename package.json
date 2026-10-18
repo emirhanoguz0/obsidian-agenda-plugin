@@ -1,0 +1,26 @@
+{
+  "name": "obsidian-agenda-plugin",
+  "version": "0.1.0",
+  "description": "Shows dated tasks and events from a plain Markdown file as an agenda in the Obsidian right sidebar.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc --noEmit && node esbuild.config.mjs production",
+    "test": "vitest run",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "agenda"
+  ],
+  "license": "MIT",
+  "author": "emirhanoguz0",
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "obsidian": "^1.14.4",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
