@@ -15,7 +15,7 @@ export default class AgendaPanelPlugin extends Plugin {
     this.registerView(VIEW_TYPE_AGENDA, (leaf) => new AgendaView(leaf, this));
     this.addRibbonIcon("calendar-days", "Open agenda panel", () => void this.activateView());
     this.addCommand({
-      id: "open-agenda-panel",
+      id: "open-view",
       name: "Open agenda panel",
       callback: () => void this.activateView(),
     });

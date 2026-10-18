@@ -1,6 +1,6 @@
 {
   "name": "obsidian-agenda-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shows dated tasks and events from a plain Markdown file as an agenda in the Obsidian right sidebar.",
   "main": "main.js",
   "scripts": {
