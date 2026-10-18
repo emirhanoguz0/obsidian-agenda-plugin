@@ -16,7 +16,7 @@ export default class AgendaPanelPlugin extends Plugin {
     this.addRibbonIcon("calendar-days", "Open agenda panel", () => void this.activateView());
     this.addCommand({
       id: "open-view",
-      name: "Open agenda panel",
+      name: "Open in sidebar",
       callback: () => void this.activateView(),
     });
     this.addSettingTab(new AgendaSettingTab(this.app, this));
@@ -64,7 +64,8 @@ export default class AgendaPanelPlugin extends Plugin {
   }
 
   async loadSettings(): Promise<void> {
-    const settings: AgendaSettings = Object.assign(createDefaultSettings(), await this.loadData());
+    const saved = (await this.loadData()) as Partial<AgendaSettings> | null;
+    const settings: AgendaSettings = Object.assign(createDefaultSettings(), saved);
     const defaults = createDefaultSettings();
     if (!Array.isArray(settings.types)) settings.types = defaults.types;
     if (!splitFormat(settings.dateFormat)) settings.dateFormat = defaults.dateFormat;

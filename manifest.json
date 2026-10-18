@@ -1,7 +1,7 @@
-{
+﻿{
   "id": "agenda-panel",
   "name": "Agenda Panel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minAppVersion": "1.7.2",
   "description": "Show dated tasks and events from a plain Markdown file as a four-week calendar and agenda list in the right sidebar.",
   "author": "emirhanoguz0",

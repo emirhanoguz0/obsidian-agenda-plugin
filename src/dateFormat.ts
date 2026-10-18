@@ -1,15 +1,14 @@
 export const DEFAULT_DATE_FORMAT = "DD.MM.YYYY";
 
-const TOKENS = ["YYYY", "MM", "DD"] as const;
+export type DateToken = "YYYY" | "MM" | "DD";
+
 const TOKEN_PATTERN = /YYYY|MM|DD/g;
 
-const TOKEN_REGEX: Record<(typeof TOKENS)[number], string> = {
+const TOKEN_REGEX: Record<DateToken, string> = {
   YYYY: "(\\d{4})",
   MM: "(\\d{1,2})",
   DD: "(\\d{1,2})",
 };
-
-export type DateToken = (typeof TOKENS)[number];
 
 export const SEPARATORS = [".", "/", "-"] as const;
 
@@ -51,8 +50,8 @@ export function dateRegexSource(format: string): string {
   let last = 0;
   for (const match of format.matchAll(TOKEN_PATTERN)) {
     source += escapeRegex(format.slice(last, match.index));
-    source += TOKEN_REGEX[match[0] as (typeof TOKENS)[number]];
-    last = match.index! + match[0].length;
+    source += TOKEN_REGEX[match[0] as DateToken];
+    last = match.index + match[0].length;
   }
   return source + escapeRegex(format.slice(last));
 }
